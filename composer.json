@@ -14,5 +14,10 @@
              "type": "git"
          }
      ],
+    "autoload": {
+        "psr-4": {
+            "OCA\\UserOidc\\": "lib"
+        }
+    },
     "require": {"jumbojett/openid-connect-php": "0.3.1"}
 }

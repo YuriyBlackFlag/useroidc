@@ -15,12 +15,20 @@ class ComposerStaticInit54a29ba4c8de212f9266bb9b9bc34050
         array (
             'phpseclib\\' => 10,
         ),
+        'O' => 
+        array (
+            'OCA\\UserOidc\\' => 13,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'phpseclib\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
+        ),
+        'OCA\\UserOidc\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/lib',
         ),
     );
 

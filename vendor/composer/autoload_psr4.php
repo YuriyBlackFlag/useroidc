@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'phpseclib\\' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
+    'OCA\\UserOidc\\' => array($baseDir . '/lib'),
 );
