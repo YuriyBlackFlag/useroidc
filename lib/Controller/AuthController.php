@@ -78,10 +78,11 @@ class AuthController extends Controller
             $this->log->debug('Got name claim:' . $this->session['oidc_name_claim'], ['app' => $this->appName]);
             $this->session['oidc_email_claim'] = $this->oidc->getEmailClaim();
             $this->log->debug('Got email claim:' . $this->session['oidc_email_claim'], ['app' => $this->appName]);
+            $this->session['oidc_slug_claim'] = $this->oidc->getSlugClaim();
+            $this->log->debug('Got slug claim:' . $this->session['oidc_slug_claim'], ['app' => $this->appName]);
 
-            $name_nowhspc = strtolower($this->preg_whspc($this->session['oidc_name_claim']));
 
-            $user_id = implode('_', array($name_nowhspc, $connector));
+            $user_id =  $this->session['oidc_slug_claim'];
             $email = $this->session['oidc_email_claim'];
             $name = $this->session['oidc_name_claim'];
         } else {

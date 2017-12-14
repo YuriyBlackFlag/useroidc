@@ -57,4 +57,10 @@ class UserOidcClient {
     public function getEmailClaim() {
         return $this->oidc->getEmailClaim();
     }
+
+    public function getSlugClaim()
+    {
+        $slugClaim = $this->oidc->decodedClaims->slug;
+        return $slugClaim;
+    }
 }
