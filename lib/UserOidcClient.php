@@ -46,8 +46,11 @@ class UserOidcClient {
         return $this->oidc->getIdTokenPayload();
     }
 
-    public function getSubClaim() {
-        return $this->oidc->getSubClaim();
+    public function getSubClaim()
+    {
+        $allClaims = $this->oidc->getAllClaims();
+        $subClaim = $allClaims->sub;
+        return $subClaim;
     }
 
     public function getNameClaim() {
@@ -60,7 +63,8 @@ class UserOidcClient {
 
     public function getSlugClaim()
     {
-        $slugClaim = $this->oidc->decodedClaims->slug;
+        $allClaims = $this->oidc->getAllClaims();
+        $slugClaim = $allClaims->slug;
         return $slugClaim;
     }
 }
