@@ -132,7 +132,7 @@ class AuthController extends Controller
             $this->log->debug('Invalid username "' . $uid . '", allowed chars "a-zA-Z0-9" and "_.@-" ', ['app' => $this->appName]);
             return false;
         } else {
-            $random_password = $this->securerandom->generate(64);
+            $random_password = $uid; //to connect with default email
             $this->log->debug('Creating new user: ' . $uid, ['app' => $this->appName]);
             $user = $this->usermanager->createUser($uid, $random_password);
             $user->setEMailAddress($email);
