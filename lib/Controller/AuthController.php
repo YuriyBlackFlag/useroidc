@@ -116,7 +116,7 @@ class AuthController extends Controller
     private function doLogin($user)
     {
         $this->usersession->getSession()->regenerateId();
-        $this->usersession->createSessionToken($this->request, $user->getUID(), $user->getUID());
+        $this->usersession->createSessionToken($this->request, $user->getUID(), $user->getUID(), $user->getUID());
         if ($this->usersession->login($user->getUID(), $this->usersession->getSession()->getId())) {
             $this->log->debug('login successful', ['app' => $this->appName]);
             $this->usersession->createSessionToken($this->request, $user->getUID(), $user->getUID());
@@ -132,7 +132,7 @@ class AuthController extends Controller
             $this->log->debug('Invalid username "' . $uid . '", allowed chars "a-zA-Z0-9" and "_.@-" ', ['app' => $this->appName]);
             return false;
         } else {
-            $random_password = $uid; //to connect with default email
+            $random_password = $uid;
             $this->log->debug('Creating new user: ' . $uid, ['app' => $this->appName]);
             $user = $this->usermanager->createUser($uid, $random_password);
             $user->setEMailAddress($email);
